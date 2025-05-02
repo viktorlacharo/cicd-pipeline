@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import React, { FC } from "react";
 
 interface HomeLayoutProps {
@@ -5,7 +6,13 @@ interface HomeLayoutProps {
 }
 
 const HomeLayout: FC<HomeLayoutProps> = ({ children }) => {
-  return <div>{children}</div>;
+  return (
+    <div>
+      <Navbar />
+
+      {children}
+    </div>
+  );
 };
 
 export default HomeLayout;
