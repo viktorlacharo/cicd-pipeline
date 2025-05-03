@@ -1,10 +1,9 @@
-import HeroBanner from "@/components/HeroBanner";
 import Categories from "@/components/Categories";
 import FeaturedProducts from "@/components/FeaturedProducts";
-import { Separator } from "@/components/ui/separator";
+import HeroBanner from "@/components/HeroBanner";
 import ProductCard from "@/components/ProductCard";
+import { Separator } from "@/components/ui/separator";
 import { newArrivals, saleProducts } from "@/data/products";
-import PayloadLanding from "@/features/payload/components/PayloadLanding";
 
 import configPromise from "@payload-config";
 import { getPayload } from "payload";

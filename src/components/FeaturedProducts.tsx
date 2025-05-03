@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -6,24 +6,27 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
-import ProductCard from './ProductCard';
-import { featuredProducts } from '@/data/products';
+import ProductCard from "./ProductCard";
+import { featuredProducts } from "@/data/products";
 
-interface FeaturedProductsProps {}
-
-const FeaturedProducts: FC<FeaturedProductsProps> = () => {
+const FeaturedProducts: FC = () => {
   return (
     <section className="py-12 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl font-bold">Featured Products</h2>
-          <a href="/products/featured" className="text-primary hover:underline">View all</a>
+          <a href="/products/featured" className="text-primary hover:underline">
+            View all
+          </a>
         </div>
 
         <Carousel className="w-full">
           <CarouselContent className="-ml-4">
             {featuredProducts.map((product) => (
-              <CarouselItem key={product.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+              <CarouselItem
+                key={product.id}
+                className="pl-4 md:basis-1/2 lg:basis-1/3"
+              >
                 <div className="p-1">
                   <ProductCard
                     id={product.id}
