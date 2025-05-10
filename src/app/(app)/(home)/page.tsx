@@ -17,7 +17,7 @@ const HomePage = async () => {
     },
     depth: 1, // Subcategories level
   });
-  console.log("data", data);
+  //console.log("data", data);
 
   return (
     <main>

@@ -2,6 +2,8 @@ import { ShoppingCart, User } from "lucide-react";
 import Link from "next/link";
 import { FC } from "react";
 import { Button } from "./ui/button";
+import PreHeader from "./PreHeader";
+import Image from "next/image";
 
 interface NavbarItemProps {
   name: string;
@@ -24,49 +26,55 @@ const NavbarItem: FC<NavbarItemProps> = ({ name, href, isActive }) => {
 
 const navbarItems = [
   {
-    name: "Home",
-    href: "/",
+    name: "NEW IN",
+    href: "/new-in/",
   },
   {
-    name: "Categories",
-    href: "/categories",
+    name: "SHOP",
+    href: "/shop/",
   },
   {
-    name: "Deals",
-    href: "/deals",
+    name: "PERSONAL SHOPPING",
+    href: "/personal-shopping/",
   },
   {
-    name: "New Arrivals",
-    href: "/new-arrivals",
+    name: "CONSIGN",
+    href: "/consign/",
   },
   {
-    name: "Contact",
-    href: "/contact",
+    name: "ABOUT US",
+    href: "/about-us/",
   },
 ];
 
 const Navbar = () => {
   return (
     <div className="flex flex-col w-full">
-      {/* pre header */}
+      <PreHeader />
 
-      <nav className="flex items-center justify-between w-full px-4 py-2 bg-white ">
-        <div className="flex items-center space-x-4">
-          <Link href="/" className="text-lg font-bold text-primary">
-            Logo
-          </Link>
-          <div className="hidden md:flex space-x-4">
-            {navbarItems.map((item) => (
-              <NavbarItem key={item.name} {...item} />
-            ))}
-          </div>
+      <nav className="flex items-center justify-between w-full  container mx-auto p-4  bg-white ">
+        <Link href="/" className="text-lg font-bold text-primary">
+          <Image
+            width={24}
+            className=""
+            height={20}
+            src={"/logo.webp"}
+            alt="Logo"
+          />
+        </Link>
+        <div className="hidden md:flex space-x-4">
+          {navbarItems.map((item) => (
+            <NavbarItem key={item.name} {...item} />
+          ))}
         </div>
+
         <div className="flex items-center space-x-4">
           <Button variant="ghost" size="icon">
             <User size={20} />
           </Button>
           <Button variant="ghost" size="icon">
             <ShoppingCart size={20} />
+            
           </Button>
         </div>
       </nav>

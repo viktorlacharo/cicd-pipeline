@@ -12,6 +12,19 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  serverExternalPackages: ["mongodb"],
+  turbopack: {
+    // Configure webpack loaders for Payload CMS
+    rules: {
+      "*.svg": {
+        loaders: ["@svgr/webpack"],
+        as: "*.js",
+      },
+      "*.scss": {
+        loaders: ["sass-loader"],
+      },
+    },
+  },
 };
 
 export default withPayload(nextConfig);
