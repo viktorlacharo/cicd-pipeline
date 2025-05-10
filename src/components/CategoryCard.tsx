@@ -15,12 +15,13 @@ const CategoryCard: FC<CategoryCardProps> = ({ name, image, description }) => {
       <Card className="overflow-hidden group transition-all duration-300 hover:shadow-lg h-full">
         <div className="relative h-40">
           <Image
-            src={image}
+            src={image ?? null}
             alt={name}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
-            style={{ objectFit: "cover" }}
+        
           />
+
           <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors"></div>
         </div>
         <CardContent className="p-4 text-center">

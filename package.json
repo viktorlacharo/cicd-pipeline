@@ -9,7 +9,9 @@
     "start": "next start",
     "lint": "next lint",
     "test:prod": "vitest",
-    "test": "vitest"
+    "test": "vitest",
+    "db:fresh": "payload migrate:fresh "
+
   },
   "dependencies": {
     "@payloadcms/db-mongodb": "^3.36.1",
