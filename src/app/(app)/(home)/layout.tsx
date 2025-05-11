@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import StoreInitializer from "@/components/StoreInitializer";
 import { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import React, { FC } from "react";
@@ -47,8 +48,19 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children }) => {
       <body
         className={`${manrope.className} ${helveticaNeue.variable} antialiased`}
       >
-        <div>
-          <Navbar /> {children}
+        {/* Initialize stores on client-side */}
+        <StoreInitializer />
+
+        <div className="min-h-screen flex flex-col">
+          <Navbar />
+          <main className="flex-grow">{children}</main>
+          <footer className="bg-muted mt-auto py-8">
+            <div className="container mx-auto text-center text-muted-foreground">
+              <p>
+                © {new Date().getFullYear()} Your Store. All rights reserved.
+              </p>
+            </div>
+          </footer>
         </div>
       </body>
     </html>

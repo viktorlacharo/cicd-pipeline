@@ -1,12 +1,14 @@
+'use client';
+
 import { FC } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "./ui/button";
 import { Card, CardContent, CardFooter } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { ShoppingCart } from "lucide-react";
+import AddToCartButton from "@/features/ShopingCart/components/AddToCartButton";
+import { Product } from "@/data/products";
 
-interface ProductCardProps {
+export interface ProductCardProps {
   id: string;
   name: string;
   price: number;
@@ -62,13 +64,23 @@ const ProductCard: FC<ProductCardProps> = ({
             <p className="text-muted-foreground text-sm line-through">${originalPrice.toFixed(2)}</p>
           )}
         </div>
-      </CardContent>
-      
+      </CardContent>      
       <CardFooter>
-        <Button className="w-full gap-2">
-          <ShoppingCart className="h-4 w-4" />
-          Add to cart
-        </Button>
+        <AddToCartButton 
+          product={{
+            id,
+            name,
+            price,
+            originalPrice,
+            image,
+            category,
+            description: "",
+            isNew,
+            isSale
+          } as Product}
+          size="default"
+          variant="default"
+        />
       </CardFooter>
     </Card>
   );
