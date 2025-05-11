@@ -1,12 +1,15 @@
-
-
 import configPromise from "@payload-config";
 import { getPayload } from "payload";
+
+import { HydrateClient, prefetch, trpc } from "@/trpc/server";
+import { ClientGreeting } from "./Test";
 
 const HomePage = async () => {
   const payload = await getPayload({
     config: configPromise,
   });
+
+  prefetch(trpc.categories.getAll.queryOptions());
 
   const data = await payload.find({
     collection: "categories",
@@ -21,7 +24,11 @@ const HomePage = async () => {
 
   return (
     <main>
-      
+      <HydrateClient>
+        <div>...</div>
+        {/** ... */}
+        <ClientGreeting />
+      </HydrateClient>
     </main>
   );
 };

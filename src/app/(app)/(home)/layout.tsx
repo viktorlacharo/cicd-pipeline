@@ -4,6 +4,7 @@ import { Manrope } from "next/font/google";
 import React, { FC } from "react";
 import "../../globals.css";
 import localFont from "next/font/local";
+import { TRPCReactProvider } from "../../../trpc/client";
 
 const manrope = Manrope({
   weight: ["400", "500", "600", "700"],
@@ -47,9 +48,11 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children }) => {
       <body
         className={`${manrope.className} ${helveticaNeue.variable} antialiased`}
       >
-        <div>
-          <Navbar /> {children}
-        </div>
+        <TRPCReactProvider>
+          <div>
+            <Navbar /> {children}
+          </div>
+        </TRPCReactProvider>
       </body>
     </html>
   );
